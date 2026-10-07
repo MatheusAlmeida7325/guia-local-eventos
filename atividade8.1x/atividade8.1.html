@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASTELO VIVENDA ZENKER - Detalhes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: #b45309;
+      color: #ffffff;
+    }
+
+    /* BASE MOBILE-FIRST */
+    body {
+      font-family: 'Segoe UI', Georgia, serif;
+      background-color: #f8f9fa;
+      color: #2c2a29;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden; 
+    }
+
+    
+    header {
+      background-color: #78350f;
+      color: #ffffff;
+      padding: 12px 20px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fef3c7;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      display: inline-block;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffffff;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #f59e0b;
+    }
+
+    nav a:focus,
+    .contato-link:focus,
+    .nav-secundaria a:focus {
+      outline: 2px solid #f59e0b;
+      outline-offset: 3px;
+    }
+
+    
+    .nav-secundaria {
+      background-color: #f3f4f6;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 8px 16px;
+    }
+
+    .nav-secundaria-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    .nav-secundaria a {
+      color: #78350f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-secundaria a:hover {
+      text-decoration: underline;
+    }
+
+    .link-voltar {
+      font-weight: bold !important;
+      margin-right: 8px;
+    }
+
+    
+    main {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 30px 16px;
+      flex: 1;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+
+    h1 {
+      color: #1e1b18;
+      margin-bottom: 12px;
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    h1::first-letter {
+      font-size: 130%;
+      color: #78350f;
+      font-weight: bold;
+      font-family: Georgia, serif;
+    }
+
+    .destaque-lead {
+      font-size: 1rem;
+      color: #61564d;
+    }
+
+   
+    .grid-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #e7e5e4;
+      border-top: 4px solid #b45309;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      color: #78350f;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #fef3c7;
+      padding-bottom: 6px;
+    }
+
+    .card h3 {
+      color: #1e1b18;
+      font-size: 0.95rem;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: #44403c;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 14px;
+      color: #44403c;
+      font-size: 0.9rem;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+    }
+
+    .contato-link {
+      text-decoration: none;
+      color: #78350f;
+      font-weight: 500;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-left: 18px;
+      transition: color 0.3s ease;
+      word-break: break-word;
+    }
+
+    .contato-link::before {
+      content: "➔";
+      position: absolute;
+      left: 0;
+      font-size: 0.85em;
+      opacity: 0.7;
+      transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .contato-link:hover,
+    .contato-link:focus {
+      color: #b45309;
+    }
+
+    .contato-link:hover::before,
+    .contato-link:focus::before {
+      transform: translateX(4px);
+      opacity: 1;
+      color: #b45309;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #78350f;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfbf9;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    td {
+      border-bottom: 1px solid #e7e5e4;
+      color: #44403c;
+    }
+
+    .imagem-container {
+      margin-top: 20px;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .imagem-container img:hover {
+      transform: scale(1.02);
+      filter: brightness(1.05);
+    }
+
+    .imagem-legenda {
+      font-size: 0.8rem;
+      color: #78350f;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c2a29;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    
+    @media (min-width: 768px) {
+      header {
+        padding: 0 40px;
+      }
+
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 60px;
+      }
+
+      .header-logo {
+        text-align: left;
+      }
+
+      nav ul {
+        gap: 24px;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        padding: 16px 0;
+      }
+
+      main {
+        padding: 50px 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .destaque-lead {
+        font-size: 1.1rem;
+      }
+
+      .grid-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+
+      .card {
+        padding: 24px;
+        height: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div class="header-container">
+      <div class="header-logo">Castelo Vivenda Zenker</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#locais" class="active">Locais</a></li>
+          <li><a href="index.html#agenda">Eventos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="nav-secundaria">
+    <div class="nav-secundaria-container">
+      <a href="index.html" class="link-voltar">← Locais</a>
+      <span>|</span>
+      <a href="#historia">História</a>
+      <a href="#curiosidades">Curiosidades</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1>Castelo Vivenda Zenker</h1>
+      <p class="destaque-lead">O Castelo Zenker, conhecido popularmente como o Castelo de Ferraz de Vasconcelos, foi construído na década de 1940 pelo imigrante austríaco e jornalista Arthur Zenker.</p>
+    </section>
+
+    <div class="grid-cards">
+      <section class="card" id="historia">
+        <h2>História</h2>
+        
+        <h3>A Origem e a Construção</h3>
+        <p>A família Zenker deixou a Europa para escapar dos conflitos e da devastação das guerras mundiais. O casarão rústico foi erguido em 1948 com uma torre central, arcos, esculturas de pedra e azulejos artesanais, em uma área que na época era formada por sítios e roças.</p>
+        <p>A imponência da construção deu origem ao nome do bairro onde está localizado, o Jardim Castelo.</p>
+
+        <h3>O Abandono e a Restauração</h3>
+        <p>O local foi tombado como patrimônio municipal no ano 2000, mas passou mais de duas décadas em estado de abandono e deterioração, gerando lendas urbanas entre os moradores locais.</p>
+        <p>Em janeiro de 2024, a prefeitura iniciou as obras de restauração do espaço. O Castelo Zenker foi inaugurado como centro cultural em julho de 2024, passando a abrigar exposições artísticas, eventos e projetos de resgate da memória municipal.</p>
+      </section>
+
+      <section class="card" id="curiosidades">
+        <h2>Curiosidades</h2>
+        
+        <h3>Origem do nome do bairro</h3>
+        <p>O casarão foi erguido no alto de uma colina em meio a antigas plantações de uva Itália. O bairro ao redor ficou conhecido como Jardim Castelo justamente em homenagem à construção.</p>
+
+        <h3>Refúgio de guerra</h3>
+        <p>Arthur Zenker e sua esposa Elisabeth mudaram-se para o Brasil após a Primeira Guerra Mundial. Durante a Segunda Guerra, o austríaco (que fazia oposição ao regime nazista) usou a própria residência como refúgio para acolher imigrantes e soldados alemães que fugiam do conflito europeu.</p>
+        
+        <h3>Detalhes Arquitetônicos</h3>
+        <p>O imóvel possui inspiração germânica, contando com torre, pinturas à mão, colunas romanas, esculturas e azulejos decorativos importados do Velho Continente.</p>
+      </section>
+
+      <section class="card" id="contato">
+        <h2>Contato e Localização</h2>
+        <ul>
+          <li><strong>Endereço:</strong> <a class="contato-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">R. do Castelo, 25 - Jardim do Castelo, Ferraz de Vasconcelos - SP, 08503-110</a></li>
+          <li><strong>Telefone:</strong> <a class="contato-link" href="tel:1146777238">(11) 4677-7238</a></li>
+        </ul>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Dia</th>
+              <th>Horário</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Segunda-feira</td><td>09:00–16:00</td></tr>
+            <tr><td>Terça-feira</td><td>09:00–16:00</td></tr>
+            <tr><td>Quarta-feira</td><td>09:00–16:00</td></tr>
+            <tr><td>Quinta-feira</td><td>09:00–16:00</td></tr>
+            <tr><td>Sexta-feira</td><td>09:00–16:00</td></tr>
+            <tr><td>Sábado</td><td>Fechado</td></tr>
+            <tr><td>Domingo</td><td>Fechado</td></tr>
+          </tbody>
+        </table>
+
+        <div class="imagem-container">
+          <img src="https://saopauloantiga.com.br/wp-content/uploads/2023/09/capa_castelozenker.jpg" alt="Fachada do Castelo Vivenda Zenker">
+          <p class="imagem-legenda">Fachada principal do Castelo Vivenda Zenker — Ferraz de Vasconcelos</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Castelo Vivenda Zenker — Ferraz de Vasconcelos
+  </footer>
+
+</body>
+</html>
+
